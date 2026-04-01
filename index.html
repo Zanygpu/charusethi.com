@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charu Sethi — Stablecoin Infrastructure & GTM Strategy</title>
+  <meta name="description" content="Independent researcher and marketing strategist covering stablecoin infrastructure, programmable liquidity, tokenization, and institutional GTM. Founder of StableState." />
+  <meta name="author" content="Charu Sethi" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Charu Sethi — Stablecoin Infrastructure & GTM Strategy" />
+  <meta property="og:description" content="Founder of StableState. 8 years IBM Financial Services APAC. Ex-CMO, Unique Network (Polkadot). Based in Singapore." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://charusethi.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --slate:      #3D5060;
+      --slate-deep: #2a3840;
+      --slate-mid:  #526675;
+      --slate-pale: #8fa3b0;
+      --orange:     #EA580C;
+      --orange-dim: #c44a09;
+      --cream:      #f7f4f0;
+      --paper:      #faf8f5;
+      --ink:        #1a2228;
+      --rule:       #d6cfc6;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans', sans-serif;
+      --serif: 'IBM Plex Serif', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── RAIL MOTIF ─────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100vh;
+      background: linear-gradient(to bottom, var(--orange) 0%, var(--slate) 40%, transparent 100%);
+      z-index: 100;
+      opacity: 0.7;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    header {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.12;
+      color: var(--slate-deep);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--slate-mid);
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--slate-mid);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── NAV LINKS ──────────────────────────────────── */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      text-decoration: none;
+      padding-bottom: 1px;
+      border-bottom: 1px solid var(--slate-pale);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* ── SECTION SHARED ─────────────────────────────── */
+    section {
+      padding: 2.75rem 0;
+      border-bottom: 1px solid var(--rule);
+      animation: fadeUp 0.7s ease both;
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate-pale);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── STABLESTATE BLOCK ──────────────────────────── */
+    .publication-card {
+      background: var(--slate-deep);
+      color: var(--cream);
+      padding: 1.75rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .publication-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    .publication-card .pub-name {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+
+    .publication-card p {
+      font-size: 0.925rem;
+      line-height: 1.7;
+      color: #c5d0d8;
+      max-width: 560px;
+    }
+
+    .publication-card .pub-links {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pub-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(234,88,12,0.35);
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .pub-link:hover { border-color: var(--orange); }
+
+    /* ── WRITING LIST ───────────────────────────────── */
+    .writing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .writing-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 1rem;
+      align-items: baseline;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.12s;
+    }
+
+    .writing-item:last-child { border-bottom: none; }
+
+    .writing-item:hover .writing-title { color: var(--orange); }
+
+    .writing-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--slate-pale);
+      min-width: 1.5rem;
+    }
+
+    .writing-title {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--slate-deep);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: color 0.15s;
+    }
+
+    .writing-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate-pale);
+      white-space: nowrap;
+    }
+
+    /* ── BIO ────────────────────────────────────────── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2.5rem;
+    }
+
+    @media (max-width: 560px) {
+      .bio-grid { grid-template-columns: 1fr; }
+    }
+
+    .bio-block p {
+      font-size: 0.875rem;
+      color: var(--slate-mid);
+      line-height: 1.75;
+    }
+
+    .bio-block strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-pale);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── CONTACT ────────────────────────────────────── */
+    .contact-line {
+      font-size: 0.875rem;
+      color: var(--slate-mid);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-line a {
+      color: var(--slate);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .contact-line a:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      padding: 2rem 0 3rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      color: var(--slate-pale);
+    }
+
+    .footer-location {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      color: var(--slate-pale);
+      text-align: right;
+    }
+
+    /* ── ANIMATION ──────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header { animation-delay: 0s; }
+    section:nth-of-type(1) { animation-delay: 0.1s; }
+    section:nth-of-type(2) { animation-delay: 0.18s; }
+    section:nth-of-type(3) { animation-delay: 0.26s; }
+    section:nth-of-type(4) { animation-delay: 0.34s; }
+    footer { animation-delay: 0.42s; }
+
+    /* ── MOBILE ─────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .container { padding: 0 1.25rem 0 1.75rem; }
+      header { padding: 2.5rem 0 2rem; }
+      h1 { font-size: 2rem; }
+      .writing-item { grid-template-columns: auto 1fr; }
+      .writing-tag { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-location { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <p class="eyebrow">Charu Sethi</p>
+      <h1>Stablecoin infrastructure.<br /><em>Follow the margin.</em></h1>
+      <p class="tagline">
+        Independent researcher and marketing strategist. I cover how stablecoin rails reshape financial infrastructure, who captures the margin, and how institutional distribution actually works.
+      </p>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="https://www.linkedin.com/in/charusethi" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com/charusethi" target="_blank" rel="noopener">X / Twitter</a></li>
+          <li><a href="https://stablestate.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="mailto:charu@stablestate.xyz">charu@stablestate.xyz</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- STABLESTATE -->
+    <section>
+      <p class="section-label">Publication</p>
+      <div class="publication-card">
+        <p class="pub-name">StableState</p>
+        <p>
+          A research and intelligence publication covering stablecoin infrastructure, programmable liquidity, tokenization, and GTM strategy — written for institutional audiences who need analysis, not hype. Each piece traces how value shifts between layers: who builds the rails, who owns the relationship, and who captures the margin as the stack matures.
+        </p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://stablestate.substack.com" target="_blank" rel="noopener">Read on Substack →</a>
+          <a class="pub-link" href="https://stablestate.xyz" target="_blank" rel="noopener">stablestate.xyz</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section>
+      <p class="section-label">Selected Writing</p>
+      <ul class="writing-list">
+        <li class="writing-item">
+          <span class="writing-num">01</span>
+          <a class="writing-title" href="https://stablestate.substack.com" target="_blank" rel="noopener">
+            The Wedge and Expansion Framework: How Stablecoin GTM Actually Works
+          </a>
+          <span class="writing-tag">GTM</span>
+        </li>
+        <li class="writing-item">
+          <span class="writing-num">02</span>
+          <a class="writing-title" href="https://stablestate.substack.com" target="_blank" rel="noopener">
+            Distribution Economics and the Stablecoin Stack
+          </a>
+          <span class="writing-tag">Distribution</span>
+        </li>
+        <li class="writing-item">
+          <span class="writing-num">03</span>
+          <a class="writing-title" href="https://stablestate.substack.com" target="_blank" rel="noopener">
+            Tether's Strategic Infrastructure: USDT, USDT0, and USAT
+          </a>
+          <span class="writing-tag">Infrastructure</span>
+        </li>
+        <li class="writing-item">
+          <span class="writing-num">04</span>
+          <a class="writing-title" href="https://stablestate.substack.com" target="_blank" rel="noopener">
+            Whop Treasury and the Platforms with Idle Balances
+          </a>
+          <span class="writing-tag">DeFi</span>
+        </li>
+        <li class="writing-item">
+          <span class="writing-num">05</span>
+          <a class="writing-title" href="https://stablestate.substack.com" target="_blank" rel="noopener">
+            ASEAN Stablecoin Dynamics: Japan, Korea, and the Regulatory Frontier
+          </a>
+          <span class="writing-tag">ASEAN</span>
+        </li>
+        <li class="writing-item">
+          <span class="writing-num">06</span>
+          <a class="writing-title" href="https://stablestate.substack.com" target="_blank" rel="noopener">
+            Reserve Income and the Margin Migration in Cross-Border Payments
+          </a>
+          <span class="writing-tag">Macro</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- BIO -->
+    <section>
+      <p class="section-label">Background</p>
+      <div class="bio-grid">
+        <div class="bio-block">
+          <strong>Research focus</strong>
+          <p>Stablecoin infrastructure, programmable liquidity, tokenized RWAs, and how institutional distribution relationships become durable competitive moats. Analytical frameworks: Wedge and Expansion, margin migration, distribution-as-franchise.</p>
+        </div>
+        <div class="bio-block">
+          <strong>Career</strong>
+          <p>Eight years leading ABM and demand generation at IBM Financial Services across APAC. CMO at Unique Network (Polkadot ecosystem). Now running StableState as an independent research publication and advising blockchain infrastructure companies on GTM strategy.</p>
+        </div>
+        <div class="bio-block">
+          <strong>Expertise</strong>
+          <p>Enterprise GTM for financial infrastructure. Buying committee mapping. Account-based marketing. Institutional fintech positioning. Stablecoin regulatory landscape across APAC, EU, and US.</p>
+        </div>
+        <div class="bio-block">
+          <strong>Available for</strong>
+          <p>GTM and marketing leadership roles at blockchain infrastructure companies, Layer 1 ecosystems, and institutional fintechs. Independent consulting on B2B marketing strategy, content, and demand generation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+      <p class="section-label">Contact</p>
+      <p class="contact-line">
+        For consulting enquiries and role opportunities —
+        <a href="mailto:charu@stablestate.xyz">charu@stablestate.xyz</a>
+      </p>
+      <p class="contact-line">
+        Connect on <a href="https://www.linkedin.com/in/charusethi" target="_blank" rel="noopener">LinkedIn</a>
+        or follow research threads on <a href="https://twitter.com/charusethi" target="_blank" rel="noopener">X</a>.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Minervae Consulting Pte. Ltd. All rights reserved.</p>
+        <p class="footer-location">Singapore &nbsp;·&nbsp; charusethi.com</p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
