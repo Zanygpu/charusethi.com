@@ -452,6 +452,246 @@
     .contact-ctas { align-items: flex-start; }
     .hero h1 { font-size: 2rem; }
   }
+
+  /* ── ARTICLE CARDS ── */
+  .article-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1.5px solid var(--rule);
+    margin-bottom: 1.5px;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: opacity 0.15s ease;
+  }
+  .article-featured:hover { opacity: 0.85; }
+
+  .article-featured-img {
+    background: var(--slate);
+    overflow: hidden;
+    min-height: 220px;
+  }
+  .article-featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.2s ease;
+  }
+  .article-featured:hover .article-featured-img img { filter: grayscale(0%); }
+
+  .article-featured-body {
+    padding: 1.8rem 1.6rem;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .article-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .article-date {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .article-badge {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--orange);
+    color: #fff;
+    padding: 2px 6px;
+  }
+
+  .article-title-large {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--slate-dark);
+    line-height: 1.3;
+    margin-bottom: 0.7rem;
+  }
+
+  .article-subtitle {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .article-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .article-link {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+    text-decoration: none;
+    border: 1px solid var(--slate);
+    color: var(--slate);
+    transition: all 0.12s ease;
+    cursor: pointer;
+  }
+
+  .article-link:hover { background: var(--slate); color: var(--cream); }
+
+  .article-link-sub {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  .article-link-sub:hover { background: var(--orange); color: #fff; }
+
+  /* Standard article row cards */
+  .article-row {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .article-row:first-of-type { border-top: 1px solid var(--rule); }
+
+  .article-row-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--orange);
+    font-weight: 500;
+    padding-top: 0.15rem;
+  }
+
+  .article-row-body {}
+
+  .article-row-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--slate-dark);
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+  }
+
+  .article-row-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .article-featured { grid-template-columns: 1fr; }
+    .article-featured-img { min-height: 160px; }
+    .article-title-large { font-size: 1.15rem; }
+  }
+
+  /* ── ARTICLES GRID ── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+  }
+
+  .article-card {
+    background: var(--cream);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.15s ease;
+  }
+  .article-card:hover { opacity: 0.82; }
+
+  .article-card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--slate);
+    flex-shrink: 0;
+  }
+  .article-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .article-card-img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e2f38;
+  }
+
+  .article-card-body {
+    padding: 1.3rem 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .article-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .article-card-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--slate-dark);
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .article-card-sub {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+
+  .article-links {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  @media (max-width: 600px) {
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -551,42 +791,156 @@
   <!-- SELECTED WRITING — sits between service cards and workshop -->
   <section>
     <div class="section-label">Selected Writing</div>
-    <div class="writing-list">
-      <a href="https://www.linkedin.com/pulse/stablecoin-licences-hong-kong-issued-edges-left-open-charu-sethi-3h0cc/" class="writing-item" target="_blank" rel="noopener noreferrer">
-        <span class="writing-num">01</span>
-        <span class="writing-title">The Stablecoin Licences that Hong Kong Issued, and the Edges It Left Open</span>
-        <span class="read-link">Read →</span>
+
+    <div class="articles-grid">
+
+      <!-- 01 Korea -->
+      <a class="article-card" href="https://www.linkedin.com/pulse/korea-building-stablecoins-fix-payments-charu-sethi-zsktc/" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="https://substackcdn.com/image/fetch/$s_!uynr!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30f53c47-97bf-421f-8427-b50501d99b38_2912x1632.png" alt="Korea Is Not Building Stablecoins To Fix Payments" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">01</span>
+            <span class="article-badge">Latest</span>
+            <span class="article-date">Sep 2026</span>
+          </div>
+          <div class="article-card-title">Korea Is Not Building Stablecoins To Fix Payments</div>
+          <div class="article-card-sub">Six months from absent to task four on the won internationalisation roadmap.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/pulse/korea-building-stablecoins-fix-payments-charu-sethi-zsktc/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://stablestate1.substack.com/p/korea-is-not-building-stablecoins" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
-      <a href="#" class="writing-item">
-        <span class="writing-num">02</span>
-        <span class="writing-title">Who Can Be Whop? The Structural Questions Behind DeFi Yield Integration in Fintech</span>
-        <span class="read-link">Read →</span>
+
+      <!-- 02 HK -->
+      <a class="article-card" href="https://www.linkedin.com/pulse/stablecoin-licences-hong-kong-issued-edges-left-open-charu-sethi-3h0cc/" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_hk.png" alt="The Stablecoin Licences that Hong Kong Issued" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">02</span>
+            <span class="article-date">May 2026</span>
+          </div>
+          <div class="article-card-title">The Stablecoin Licences that Hong Kong Issued, and the Edges It Left Open</div>
+          <div class="article-card-sub">Who got licensed, what the regime covers, and what it deliberately left for later.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/pulse/stablecoin-licences-hong-kong-issued-edges-left-open-charu-sethi-3h0cc/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
-      <a href="#" class="writing-item">
-        <span class="writing-num">03</span>
-        <span class="writing-title">The Hardest Part of Stablecoin GTM Isn't the Wedge. It's What Comes Next</span>
-        <span class="read-link">Read →</span>
+
+      <!-- 03 Whop -->
+      <a class="article-card" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_whop.png" alt="Who Can Be Whop?" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">03</span>
+          </div>
+          <div class="article-card-title">Who Can Be Whop? The Structural Questions Behind DeFi Yield Integration in Fintech</div>
+          <div class="article-card-sub">Same infrastructure, two capital pools. What Whop's yield stack reveals about fintech margin.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
-      <a href="#" class="writing-item">
-        <span class="writing-num">04</span>
-        <span class="writing-title">White-Label Stablecoins and the Unbundling of Correspondent Banking: Where Does Margin Migrate?</span>
-        <span class="read-link">Read →</span>
+
+      <!-- 04 GTM -->
+      <a class="article-card" href="https://www.linkedin.com/pulse/hardest-part-stablecoin-gtm-isnt-wedge-its-what-comes-charu-sethi-ltdyc/" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_gtm.jpg" alt="The Hardest Part of Stablecoin GTM" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">04</span>
+          </div>
+          <div class="article-card-title">The Hardest Part of Stablecoin GTM Isn't the Wedge. It's What Comes Next</div>
+          <div class="article-card-sub">Introducing the Wedge and Expansion Framework: every company enters through one capability, margin lives in where they move next.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/pulse/hardest-part-stablecoin-gtm-isnt-wedge-its-what-comes-charu-sethi-ltdyc/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
-      <a href="#" class="writing-item">
-        <span class="writing-num">05</span>
-        <span class="writing-title">How SMEs Actually Monetize Stablecoins: Four Revenue Layers Beyond Payments</span>
-        <span class="read-link">Read →</span>
+
+      <!-- 05 White-Label / Margin Migrates -->
+      <a class="article-card" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_margin.jpg" alt="Where Does Margin Migrate?" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">05</span>
+          </div>
+          <div class="article-card-title">White-Label Stablecoins and the Unbundling of Correspondent Banking: Where Does Margin Migrate?</div>
+          <div class="article-card-sub">Four open questions mapped by regulatory clarity and margin concentration.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
-      <a href="#" class="writing-item">
-        <span class="writing-num">06</span>
-        <span class="writing-title">Stablecoin Payment Infrastructure 2026, Part 2: Ripple's Institutional Stack vs Tether's $187B Global Network</span>
-        <span class="read-link">Read →</span>
+
+      <!-- 06 SMEs / Four Revenue Layers -->
+      <a class="article-card" href="https://stablestate1.substack.com/p/how-smes-actually-monetize-stablecoins" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_smes.jpg" alt="How SMEs Actually Monetize Stablecoins" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">06</span>
+          </div>
+          <div class="article-card-title">How SMEs Actually Monetize Stablecoins: Four Revenue Layers Beyond Payments</div>
+          <div class="article-card-sub">Three regulatory regimes, four revenue layers. Regulation determines monetization depth.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
-      <a href="#" class="writing-item">
-        <span class="writing-num">07</span>
-        <span class="writing-title">Stablecoin Payment Infrastructure 2026, Part 1: What CFOs Need to Know About Arc, Tempo and the Last-Mile Problem</span>
-        <span class="read-link">Read →</span>
+
+      <!-- 07 Ripple vs Tether Part 2 -->
+      <a class="article-card" href="https://www.linkedin.com/pulse/new-rails-vs-deep-liquidity-two-directions-stablecoin-charu-sethi-upicc" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_ripple.jpg" alt="Ripple vs Tether" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">07</span>
+          </div>
+          <div class="article-card-title">Stablecoin Payment Infrastructure 2026, Part 2: Ripple's Institutional Stack vs Tether's $187B Global Network</div>
+          <div class="article-card-sub">Two paths to the same destination. Top-down regulation-first versus bottom-up global adoption.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
       </a>
+
+      <!-- 08 Part 1 Arc Tempo -->
+      <a class="article-card article-card-dark" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">
+        <div class="article-card-img">
+          <img src="img_part1.jpg" alt="Stablecoin Payment Infrastructure 2026 Part 1" loading="lazy">
+        </div>
+        <div class="article-card-body">
+          <div class="article-card-meta">
+            <span class="article-num">08</span>
+          </div>
+          <div class="article-card-title">Stablecoin Payment Infrastructure 2026, Part 1: What CFOs Need to Know About Arc, Tempo and the Last-Mile Problem</div>
+          <div class="article-card-sub">The last-mile problem in stablecoin payments and who is positioned to own it.</div>
+          <div class="article-links" onclick="event.preventDefault(); event.stopPropagation();">
+            <a class="article-link" href="https://www.linkedin.com/in/zyron/recent-activity/articles/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+            <a class="article-link article-link-sub" href="https://substack.com/@stablestate1" target="_blank" rel="noopener noreferrer">Substack →</a>
+          </div>
+        </div>
+      </a>
+
     </div>
   </section>
 
